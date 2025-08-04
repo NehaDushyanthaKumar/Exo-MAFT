@@ -1,2 +1,2 @@
 # Multi-Wavelength-Atmospheric-Feature-Tracker-
- Current tools focus on single-wavelength analysis, but atmospheric features vary across wavelengths and require coordinated analysis.
+The Multi-Wavelength Atmospheric Feature Tracker addresses a critical limitation in exoplanet atmospheric studies: existing tools predominantly focus on single-wavelength analysis, whereas atmospheric features vary significantly across wavelengths and require coordinated multi-spectral analysis. This package will help researchers to track atmospheric features over multiple wavelength ranges, identify correlations across spectra, and optimize observation strategies
