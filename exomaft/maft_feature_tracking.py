@@ -13,13 +13,24 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# =============================================================================
-# CONFIGURATION
-# =============================================================================
-COMBINED_SPECTRUM = 'data/combined_spectrum.txt'  # input spectrum
-PAR_FILE          = 'data/6894c8ca.par'          # input linelist
-PLOT_FILE         = 'plots/feature_tracking.png'
-OUT_LINES         = 'output/feature_lines.txt'
+from pathlib import Path
+HERE = Path(__file__).resolve().parent        # .../Exo-MAFT/exomaft
+ROOT = HERE.parent                            # .../Exo-MAFT
+
+DATA_DIR = HERE / 'data'
+PAR_FILE = DATA_DIR / '6894c8ca.par'          # <-- no extra 'exomaft'
+
+PLOT_DIR = ROOT / 'plots'                     # existing folders at repo root
+OUT_DIR  = ROOT / 'output'
+
+COMBINED_SPECTRUM = OUT_DIR / 'combined_spectrum.txt'  # change if yours is elsewhere
+PLOT_FILE = PLOT_DIR / 'feature_tracking.png'
+OUT_LINES = OUT_DIR  / 'feature_lines.txt'
+
+# sanity checks (fail fast if wrong)
+for p in [PAR_FILE, COMBINED_SPECTRUM]:
+    if not p.exists():
+        raise FileNotFoundError(f"Expected file not found: {p}")
 
 # Pick molecules & HITRAN IDs to track
 MOLECULES = {
@@ -56,14 +67,16 @@ spec = pd.read_csv(
 wave  = spec['wavelength_um'].values  # array of wavelengths
 depth = spec['depth'].values           # array of depths
 
+
+print("Reading PAR_FILE:", PAR_FILE)
+with open(PAR_FILE, 'rb') as f:
+    first = f.readline()
+print("First 30 bytes:", first[:30])
+
 # =============================================================================
 # 3) LOAD HITRAN‐STYLE LINELIST (.par fixed-width)
 # =============================================================================
 def load_linelist_par(path):
-    """
-    Read a HITRAN .par file via pandas.read_fwf, assign column names,
-    cast types, and compute wavelength in microns.
-    """
     colspecs = [
         (0,2),(2,3),(3,15),(15,25),(25,35),
         (35,40),(40,45),(45,55),(55,59),(59,67)
@@ -72,24 +85,31 @@ def load_linelist_par(path):
         'molec_id','local_iso_id','nu','sw','a',
         'gamma_air','gamma_self','elower','n_air','delta_air'
     ]
+
+    # Read as strings to avoid crashing on odd lines; skip blank/comment lines.
     df = pd.read_fwf(
         path,
         colspecs=colspecs,
         names=names,
+        dtype=str,
         comment='#',
-        skip_blank_lines=True
+        skip_blank_lines=True,
+        on_bad_lines='skip'  # pandas>=1.3
     )
-    # cast columns to numeric
-    for c in names:
-        if c in ('molec_id','local_iso_id'):
-            df[c] = df[c].astype(int)
-        else:
-            df[c] = df[c].astype(float)
-    # convert wavenumber (cm⁻¹) → wavelength (µm)
+
+    # Keep only rows where IDs are clean integers
+    is_int = lambda s: s.str.strip().str.fullmatch(r'\d+').fillna(False)
+    df = df[is_int(df['molec_id']) & is_int(df['local_iso_id'])].copy()
+
+    # Cast IDs to int, others to numeric
+    df[['molec_id','local_iso_id']] = df[['molec_id','local_iso_id']].astype(int)
+    for c in ['nu','sw','a','gamma_air','gamma_self','elower','n_air','delta_air']:
+        df[c] = pd.to_numeric(df[c], errors='coerce')
+
+    # Require at least nu & sw
+    df = df.dropna(subset=['nu','sw'])
     df['wavelength_um'] = 1e4 / df['nu']
     return df
-
-lines = load_linelist_par(PAR_FILE)
 
 # =============================================================================
 # 4) OPEN FIGURE & PLOT SPECTRUM
