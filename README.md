@@ -13,3 +13,39 @@ You can install **Exo-MAFT** using pip:
 ```bash
 pip install exomaft
 
+```
+## Quick Start – Example: WASP-39b
+
+You're now ready to use the **Exo-MAFT** package! Below is an example workflow for **WASP-39b** using publicly available JWST data.  
+You can adapt the file paths and inputs for **other exoplanets** that have been observed through **transmission spectroscopy**.
+
+In Python:
+
+```python
+import exomaft as maft
+```
+
+# Change to your file locations
+file_paths = {
+    'niriss': 'exomaft/data/NIRISS SOSS/FIREFly_transmission_spectrum_R_300_order_1.txt',
+    'combined': 'exomaft/data/Combined/BestFitModel.txt',
+    'archival': 'exomaft/data/Combined/Archival_Data.txt',
+    'prism': 'exomaft/data/NIRSpec_PRISM/FIREFLy_transit_spectrum.txt'
+}
+
+# Process and combine transmission spectra from multiple instruments
+processor = maft.TransmissionSpectrumProcessor(file_paths=file_paths)
+processor.run_all()
+
+# Identify molecular feature lines
+tracker = maft.FeatureTracker()
+tracker.plot_and_save()
+
+# Run cross-correlation analysis
+correlator = maft.CrossCorrelator()
+correlator.run_cross_correlation()
+
+
+
+
+
