@@ -44,7 +44,7 @@ class FeatureTracker:
 
     def __init__(self):
         self.combined_spectrum_path = 'output/combined_spectrum.txt'
-        self.par_file_path = 'exomaft/data/6894c8ca.par'
+        self.par_file_path = 'data/6894c8ca.par'
         self.plot_file = 'plots/feature_tracking.png'
         self.out_lines_file = 'output/feature_lines.txt'
 
