@@ -12,3 +12,7 @@ dependencies = [
   "pandas",
   "scipy"
 ]
+
+[tool.setuptools.packages.find]
+include = ["exomaft", "exomaft.*"]
+exclude = ["plots", "output", "tutorials"]
