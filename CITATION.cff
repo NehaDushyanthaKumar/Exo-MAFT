@@ -1,0 +1,41 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: ExoMAFT
+message: Exoplanet Multi-Wavelength Atmospheric Feature Tracker
+type: software
+authors:
+  - given-names: Neha
+    family-names: Dushyantha Kumar
+    email: nvd5373@psu.edu
+    affiliation: Pennsylvania State University
+    orcid: 'https://orcid.org/0000-0002-5977-9317'
+  - given-names: K M Shariat
+    family-names: Ullah
+    email: cast.shariat@gmail.com
+    affiliation: 'Shahjalal University of Science and Technology, Sylhet'
+    orcid: 'https://orcid.org/0000-0001-9124-1181'
+  - given-names: 'Evan '
+    orcid: 'https://orcid.org/0009-0005-5223-1606'
+    family-names: Carrasco
+    email: emcarras@ucsc.edu
+    affiliation: 'University of California, Santa Cruz'
+repository-code: 'https://github.com/NehaDushyanthaKumar/Exo-MAFT'
+abstract: >-
+  The Multi-Wavelength Atmospheric Feature Tracker for
+  Exoplanets (Exo-MAFT) addresses a critical limitation in
+  exoplanet atmospheric studies: existing tools
+  predominantly focus on single-wavelength analysis, whereas
+  atmospheric features vary significantly across wavelengths
+  and require coordinated multi-spectral analysis. This
+  package will help researchers to track atmospheric
+  features over multiple wavelength ranges, identify
+  correlations across spectra, and optimize observation
+  strategies.
+keywords:
+  - Exoplanet Atmosphere
+  - Spectrum
+license: MIT-0
+version: 1.0.0
+date-released: '2025-08-08'
