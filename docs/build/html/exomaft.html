@@ -1,0 +1,436 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ExoMaft API Reference &mdash; exomaft 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to ExoMaft documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            exomaft
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ExoMaft API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#exomaft.maft_combine.TransmissionSpectrumProcessor"><code class="docutils literal notranslate"><span class="pre">TransmissionSpectrumProcessor</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#exomaft.maft_combine.TransmissionSpectrumProcessor.align_baselines"><code class="docutils literal notranslate"><span class="pre">TransmissionSpectrumProcessor.align_baselines()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exomaft.maft_combine.TransmissionSpectrumProcessor.load_spectra"><code class="docutils literal notranslate"><span class="pre">TransmissionSpectrumProcessor.load_spectra()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exomaft.maft_combine.TransmissionSpectrumProcessor.merge_spectra"><code class="docutils literal notranslate"><span class="pre">TransmissionSpectrumProcessor.merge_spectra()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exomaft.maft_combine.TransmissionSpectrumProcessor.plot_combined_spectrum"><code class="docutils literal notranslate"><span class="pre">TransmissionSpectrumProcessor.plot_combined_spectrum()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exomaft.maft_combine.TransmissionSpectrumProcessor.plot_overlay_no_errors"><code class="docutils literal notranslate"><span class="pre">TransmissionSpectrumProcessor.plot_overlay_no_errors()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exomaft.maft_combine.TransmissionSpectrumProcessor.plot_overlay_with_errors"><code class="docutils literal notranslate"><span class="pre">TransmissionSpectrumProcessor.plot_overlay_with_errors()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exomaft.maft_combine.TransmissionSpectrumProcessor.run_all"><code class="docutils literal notranslate"><span class="pre">TransmissionSpectrumProcessor.run_all()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#exomaft.getlines.Linelist"><code class="docutils literal notranslate"><span class="pre">Linelist</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#exomaft.getlines.Linelist.elem_dict"><code class="docutils literal notranslate"><span class="pre">Linelist.elem_dict</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exomaft.getlines.Linelist.elem"><code class="docutils literal notranslate"><span class="pre">Linelist.elem</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exomaft.getlines.Linelist.lines_dir"><code class="docutils literal notranslate"><span class="pre">Linelist.lines_dir</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exomaft.getlines.Linelist.outlines_dir"><code class="docutils literal notranslate"><span class="pre">Linelist.outlines_dir</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exomaft.getlines.Linelist.outlines_sorted_dir"><code class="docutils literal notranslate"><span class="pre">Linelist.outlines_sorted_dir</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exomaft.getlines.Linelist.outlines_master"><code class="docutils literal notranslate"><span class="pre">Linelist.outlines_master</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exomaft.getlines.Linelist.combine"><code class="docutils literal notranslate"><span class="pre">Linelist.combine()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exomaft.getlines.Linelist.sortlines"><code class="docutils literal notranslate"><span class="pre">Linelist.sortlines()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#exomaft.maft_feature_tracking.FeatureTracker"><code class="docutils literal notranslate"><span class="pre">FeatureTracker</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#exomaft.maft_feature_tracking.FeatureTracker.combined_spectrum_path"><code class="docutils literal notranslate"><span class="pre">FeatureTracker.combined_spectrum_path</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exomaft.maft_feature_tracking.FeatureTracker.par_file_path"><code class="docutils literal notranslate"><span class="pre">FeatureTracker.par_file_path</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exomaft.maft_feature_tracking.FeatureTracker.plot_file"><code class="docutils literal notranslate"><span class="pre">FeatureTracker.plot_file</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exomaft.maft_feature_tracking.FeatureTracker.out_lines_file"><code class="docutils literal notranslate"><span class="pre">FeatureTracker.out_lines_file</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exomaft.maft_feature_tracking.FeatureTracker.molecules"><code class="docutils literal notranslate"><span class="pre">FeatureTracker.molecules</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exomaft.maft_feature_tracking.FeatureTracker.top_n"><code class="docutils literal notranslate"><span class="pre">FeatureTracker.top_n</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exomaft.maft_feature_tracking.FeatureTracker.bin_width"><code class="docutils literal notranslate"><span class="pre">FeatureTracker.bin_width</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exomaft.maft_feature_tracking.FeatureTracker.alpha_lines"><code class="docutils literal notranslate"><span class="pre">FeatureTracker.alpha_lines</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exomaft.maft_feature_tracking.FeatureTracker.load_combined_spectrum"><code class="docutils literal notranslate"><span class="pre">FeatureTracker.load_combined_spectrum()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exomaft.maft_feature_tracking.FeatureTracker.load_linelist_par"><code class="docutils literal notranslate"><span class="pre">FeatureTracker.load_linelist_par()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exomaft.maft_feature_tracking.FeatureTracker.plot_and_save"><code class="docutils literal notranslate"><span class="pre">FeatureTracker.plot_and_save()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">exomaft</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ExoMaft API Reference</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/exomaft.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>.._exomaft:</p>
+<section id="module-exomaft.maft_combine">
+<span id="exomaft-api-reference"></span><h1>ExoMaft API Reference<a class="headerlink" href="#module-exomaft.maft_combine" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="exomaft.maft_combine.TransmissionSpectrumProcessor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">exomaft.maft_combine.</span></span><span class="sig-name descname"><span class="pre">TransmissionSpectrumProcessor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_paths</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'output'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plots_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'plots'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#exomaft.maft_combine.TransmissionSpectrumProcessor" title="Link to this definition"></a></dt>
+<dd><p>A class to load, process, align, merge, and plot exoplanet transmission spectra
+from different instruments including NIRISS, HST/Spitzer, NIRSpec PRISM, and a combined model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_paths</strong> (<em>dict</em>) – Dictionary containing paths to the spectrum files with keys:
+‘niriss’, ‘combined’, ‘archival’, and ‘prism’.</p></li>
+<li><p><strong>output_dir</strong> (<em>str</em><em>, </em><em>optional</em>) – Directory where the output combined spectrum will be saved. Default is ‘output’.</p></li>
+<li><p><strong>plots_dir</strong> (<em>str</em><em>, </em><em>optional</em>) – Directory where the output plots will be saved. Default is ‘plots’.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="exomaft.maft_combine.TransmissionSpectrumProcessor.align_baselines">
+<span class="sig-name descname"><span class="pre">align_baselines</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#exomaft.maft_combine.TransmissionSpectrumProcessor.align_baselines" title="Link to this definition"></a></dt>
+<dd><p>Align the baseline (median) of all datasets to match the NIRISS spectrum.
+This is useful for visually consistent overlay plots.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="exomaft.maft_combine.TransmissionSpectrumProcessor.load_spectra">
+<span class="sig-name descname"><span class="pre">load_spectra</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#exomaft.maft_combine.TransmissionSpectrumProcessor.load_spectra" title="Link to this definition"></a></dt>
+<dd><p>Load the spectrum data files for all instruments and convert units where necessary.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="exomaft.maft_combine.TransmissionSpectrumProcessor.merge_spectra">
+<span class="sig-name descname"><span class="pre">merge_spectra</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#exomaft.maft_combine.TransmissionSpectrumProcessor.merge_spectra" title="Link to this definition"></a></dt>
+<dd><p>Merge all spectra into a single DataFrame and export it as a tab-separated file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="exomaft.maft_combine.TransmissionSpectrumProcessor.plot_combined_spectrum">
+<span class="sig-name descname"><span class="pre">plot_combined_spectrum</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#exomaft.maft_combine.TransmissionSpectrumProcessor.plot_combined_spectrum" title="Link to this definition"></a></dt>
+<dd><p>Plot the final merged spectrum including error bars where available and save the figure.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="exomaft.maft_combine.TransmissionSpectrumProcessor.plot_overlay_no_errors">
+<span class="sig-name descname"><span class="pre">plot_overlay_no_errors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#exomaft.maft_combine.TransmissionSpectrumProcessor.plot_overlay_no_errors" title="Link to this definition"></a></dt>
+<dd><p>Plot all spectra overlaid without error bars and save the figure.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="exomaft.maft_combine.TransmissionSpectrumProcessor.plot_overlay_with_errors">
+<span class="sig-name descname"><span class="pre">plot_overlay_with_errors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#exomaft.maft_combine.TransmissionSpectrumProcessor.plot_overlay_with_errors" title="Link to this definition"></a></dt>
+<dd><p>Plot all spectra overlaid with 1-sigma error bars and save the figure.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="exomaft.maft_combine.TransmissionSpectrumProcessor.run_all">
+<span class="sig-name descname"><span class="pre">run_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#exomaft.maft_combine.TransmissionSpectrumProcessor.run_all" title="Link to this definition"></a></dt>
+<dd><p>Execute all steps of the processing pipeline:
+load spectra, align baselines, merge spectra, and generate plots.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class" id="module-exomaft.getlines">
+<dt class="sig sig-object py" id="exomaft.getlines.Linelist">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">exomaft.getlines.</span></span><span class="sig-name descname"><span class="pre">Linelist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elem</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#exomaft.getlines.Linelist" title="Link to this definition"></a></dt>
+<dd><p>A class to process and filter atomic/molecular spectral line lists for specific elements or molecules,
+typically used in exoplanet transmission spectroscopy analysis.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="exomaft.getlines.Linelist.elem_dict">
+<span class="sig-name descname"><span class="pre">elem_dict</span></span><a class="headerlink" href="#exomaft.getlines.Linelist.elem_dict" title="Link to this definition"></a></dt>
+<dd><p>Dictionary mapping element/molecule names to their atomic/molecular numbers for identification.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="exomaft.getlines.Linelist.elem">
+<span class="sig-name descname"><span class="pre">elem</span></span><a class="headerlink" href="#exomaft.getlines.Linelist.elem" title="Link to this definition"></a></dt>
+<dd><p>The element/molecule to extract from the linelist.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="exomaft.getlines.Linelist.lines_dir">
+<span class="sig-name descname"><span class="pre">lines_dir</span></span><a class="headerlink" href="#exomaft.getlines.Linelist.lines_dir" title="Link to this definition"></a></dt>
+<dd><p>Path to the base directory containing linelist files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="exomaft.getlines.Linelist.outlines_dir">
+<span class="sig-name descname"><span class="pre">outlines_dir</span></span><a class="headerlink" href="#exomaft.getlines.Linelist.outlines_dir" title="Link to this definition"></a></dt>
+<dd><p>Path to the directory containing raw line list text files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="exomaft.getlines.Linelist.outlines_sorted_dir">
+<span class="sig-name descname"><span class="pre">outlines_sorted_dir</span></span><a class="headerlink" href="#exomaft.getlines.Linelist.outlines_sorted_dir" title="Link to this definition"></a></dt>
+<dd><p>Path to the directory where cleaned and sorted files will be saved.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="exomaft.getlines.Linelist.outlines_master">
+<span class="sig-name descname"><span class="pre">outlines_master</span></span><a class="headerlink" href="#exomaft.getlines.Linelist.outlines_master" title="Link to this definition"></a></dt>
+<dd><p>Path to the final merged line list file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="exomaft.getlines.Linelist.combine">
+<span class="sig-name descname"><span class="pre">combine</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#exomaft.getlines.Linelist.combine" title="Link to this definition"></a></dt>
+<dd><p>Combine all cleaned linelist files into a single master linelist file.</p>
+<p>This method:
+- Iterates through all cleaned <cite>.txt</cite> files in <cite>outlines_sorted_dir</cite>.
+- Merges them into one master file located at <cite>outlines_master</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="exomaft.getlines.Linelist.sortlines">
+<span class="sig-name descname"><span class="pre">sortlines</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#exomaft.getlines.Linelist.sortlines" title="Link to this definition"></a></dt>
+<dd><p>Filter, clean, and sort individual outline linelist files for the specified element.</p>
+<p>This method:
+- Iterates through all <cite>.txt</cite> files in <cite>outlines_dir</cite>.
+- Parses each line to extract relevant columns.
+- Filters lines based on atomic/molecular number matching the selected element.
+- Sorts the cleaned data by wavelength.
+- Writes cleaned lines to new <cite>_cleaned.txt</cite> files in <cite>outlines_sorted_dir</cite>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<p id="module-exomaft.maft_feature_tracking">FeatureTracker module for plotting and exporting molecular absorption features
+on a combined transmission spectrum using a HITRAN-style .par linelist.</p>
+<dl class="simple">
+<dt>This module provides:</dt><dd><ul class="simple">
+<li><p>Load and parse transmission spectra</p></li>
+<li><p>Load and process HITRAN linelists</p></li>
+<li><p>Plot feature lines overlaid on a spectrum</p></li>
+<li><p>Save output plots and line lists</p></li>
+</ul>
+</dd>
+<dt>Output:</dt><dd><ul class="simple">
+<li><p>plots/feature_tracking.png</p></li>
+<li><p>output/feature_lines.txt</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="exomaft.maft_feature_tracking.FeatureTracker">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">exomaft.maft_feature_tracking.</span></span><span class="sig-name descname"><span class="pre">FeatureTracker</span></span><a class="headerlink" href="#exomaft.maft_feature_tracking.FeatureTracker" title="Link to this definition"></a></dt>
+<dd><p>Class to track and visualize molecular spectral features in transmission spectra.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="exomaft.maft_feature_tracking.FeatureTracker.combined_spectrum_path">
+<span class="sig-name descname"><span class="pre">combined_spectrum_path</span></span><a class="headerlink" href="#exomaft.maft_feature_tracking.FeatureTracker.combined_spectrum_path" title="Link to this definition"></a></dt>
+<dd><p>Path to the combined spectrum data file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="exomaft.maft_feature_tracking.FeatureTracker.par_file_path">
+<span class="sig-name descname"><span class="pre">par_file_path</span></span><a class="headerlink" href="#exomaft.maft_feature_tracking.FeatureTracker.par_file_path" title="Link to this definition"></a></dt>
+<dd><p>Path to the HITRAN-style .par linelist file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="exomaft.maft_feature_tracking.FeatureTracker.plot_file">
+<span class="sig-name descname"><span class="pre">plot_file</span></span><a class="headerlink" href="#exomaft.maft_feature_tracking.FeatureTracker.plot_file" title="Link to this definition"></a></dt>
+<dd><p>Path to save the feature plot image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="exomaft.maft_feature_tracking.FeatureTracker.out_lines_file">
+<span class="sig-name descname"><span class="pre">out_lines_file</span></span><a class="headerlink" href="#exomaft.maft_feature_tracking.FeatureTracker.out_lines_file" title="Link to this definition"></a></dt>
+<dd><p>Path to save the molecular feature lines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="exomaft.maft_feature_tracking.FeatureTracker.molecules">
+<span class="sig-name descname"><span class="pre">molecules</span></span><a class="headerlink" href="#exomaft.maft_feature_tracking.FeatureTracker.molecules" title="Link to this definition"></a></dt>
+<dd><p>Dictionary of molecules with HITRAN IDs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="exomaft.maft_feature_tracking.FeatureTracker.top_n">
+<span class="sig-name descname"><span class="pre">top_n</span></span><a class="headerlink" href="#exomaft.maft_feature_tracking.FeatureTracker.top_n" title="Link to this definition"></a></dt>
+<dd><p>Number of strongest lines to select per molecule.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="exomaft.maft_feature_tracking.FeatureTracker.bin_width">
+<span class="sig-name descname"><span class="pre">bin_width</span></span><a class="headerlink" href="#exomaft.maft_feature_tracking.FeatureTracker.bin_width" title="Link to this definition"></a></dt>
+<dd><p>Bin width for clustering lines in microns.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="exomaft.maft_feature_tracking.FeatureTracker.alpha_lines">
+<span class="sig-name descname"><span class="pre">alpha_lines</span></span><a class="headerlink" href="#exomaft.maft_feature_tracking.FeatureTracker.alpha_lines" title="Link to this definition"></a></dt>
+<dd><p>Transparency of the vertical feature lines on the plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="exomaft.maft_feature_tracking.FeatureTracker.load_combined_spectrum">
+<span class="sig-name descname"><span class="pre">load_combined_spectrum</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#exomaft.maft_feature_tracking.FeatureTracker.load_combined_spectrum" title="Link to this definition"></a></dt>
+<dd><p>Load the transmission spectrum from a tab-separated text file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="exomaft.maft_feature_tracking.FeatureTracker.load_linelist_par">
+<span class="sig-name descname"><span class="pre">load_linelist_par</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#exomaft.maft_feature_tracking.FeatureTracker.load_linelist_par" title="Link to this definition"></a></dt>
+<dd><p>Load a HITRAN .par linelist file using fixed-width formatting.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DataFrame containing molecular lines and converted wavelengths.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="exomaft.maft_feature_tracking.FeatureTracker.plot_and_save">
+<span class="sig-name descname"><span class="pre">plot_and_save</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#exomaft.maft_feature_tracking.FeatureTracker.plot_and_save" title="Link to this definition"></a></dt>
+<dd><p>Create the feature line plot, save the figure and output the feature lines.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to ExoMaft documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Neha, Evan, Shariat.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
