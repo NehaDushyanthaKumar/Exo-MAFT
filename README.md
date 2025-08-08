@@ -6,5 +6,10 @@ The Multi-Wavelength Atmospheric Feature Tracker for Exoplanets (Exo-MAFT) addre
 
 <img width="640" height="320" alt="exo_maft_doodle_640x320" src="https://github.com/user-attachments/assets/d68b6931-2c73-4823-aaec-18debe298614" />
 
+## Installation
 
+You can install **Exo-MAFT** using pip:
+
+```bash
+pip install exomaft
 
