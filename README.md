@@ -14,7 +14,8 @@ You can install **Exo-MAFT** using pip:
 pip install exomaft
 
 ```
-### we prefer for the users to git clone instead (to download the large linelist files):
+We prefer for the users to git clone instead (to download the large linelist files):
+
 ```bash
 git clone https://github.com/NehaDushyanthaKumar/Exo-MAFT.git
 ```
