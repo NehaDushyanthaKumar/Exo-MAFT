@@ -4,7 +4,7 @@
 
 The Multi-Wavelength Atmospheric Feature Tracker for Exoplanets (Exo-MAFT) addresses a critical limitation in exoplanet atmospheric studies: existing tools predominantly focus on single-wavelength analysis, whereas atmospheric features vary significantly across wavelengths and require coordinated multi-spectral analysis. This package will help researchers to track atmospheric features over multiple wavelength ranges, identify correlations across spectra, and optimize observation strategies.
 
-<img width="640" height="320" alt="exo_maft_doodle_640x320" src="https://github.com/user-attachments/assets/d68b6931-2c73-4823-aaec-18debe298614" />
+![IMG_0645](https://github.com/user-attachments/assets/7ed7116e-55a1-4f41-969f-0d8d5ed8e7a4)
 
 ## Installation
 
