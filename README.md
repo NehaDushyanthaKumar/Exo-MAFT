@@ -4,7 +4,21 @@
 
 The Multi-Wavelength Atmospheric Feature Tracker for Exoplanets (Exo-MAFT) addresses a critical limitation in exoplanet atmospheric studies: existing tools predominantly focus on single-wavelength analysis, whereas atmospheric features vary significantly across wavelengths and require coordinated multi-spectral analysis. This package will help researchers to track atmospheric features over multiple wavelength ranges, identify correlations across spectra, and optimize observation strategies.
 
+Traditional exoplanet atmospheric analysis tools have predominantly focused on single-wavelength analysis, which creates a critical gap in our understanding. Atmospheric features such as molecular absorption lines, temperature profiles, and chemical compositions exhibit significant variations across different wavelength ranges. This variation means that analyzing data from just one wavelength band provides an incomplete picture of an exoplanet's atmospheric structure and composition.
+
 ![IMG_0645](https://github.com/user-attachments/assets/7ed7116e-55a1-4f41-969f-0d8d5ed8e7a4)
+
+## Primary Capabilities
+
+**Multi-Wavelength Data Processing**  
+Exo-MAFT processes transmission spectra from multiple JWST instruments simultaneously, including:
+
+- **NIRISS SOSS** (Near Infrared Imager and Slitless Spectrograph)
+- **NIRSpec** PRISM and G395H modes
+- **NIRCam** photometry and spectroscopy
+- **MIRI** (Mid-Infrared Instrument) data
+
+The package can handle the complex task of combining pre-processed transmission spectra from these different instruments, each with their own characteristics, resolution, and wavelength coverage.
 
 ## Installation
 
